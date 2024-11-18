@@ -41,13 +41,14 @@ function NewProduct() {
         const price = parseFloat(refPrice.current?.value || '')
         const category = refCategory.current?.value || ''
         const description = refDescription.current?.value || ''
+        const status = 'Active'
 
         let imageBase64 = ''
         if (refImage.current?.files?.[0]) {
             imageBase64 = await handleImageUpload(refImage.current.files[0])
         }
 
-        dispatch(shopActions.addProduct({id, title, price, description, category, image: imageBase64}))
+        dispatch(shopActions.addProduct({id, title, price, description, category, status, image: imageBase64}))
 
         navigate(`/admin/new-product/product-review/${id}`)
     }
@@ -65,7 +66,7 @@ function NewProduct() {
     }
 
     return (
-        <div className='rounded-lg w-fit p-10 flex flex-col items-center mx-auto m-16 border border-gray-50 space-y-6 shadow-lg'>
+        <div className='bg-white rounded-lg w-fit p-10 flex flex-col items-center mx-auto m-16 border border-gray-50 space-y-6 shadow-lg'>
             <h2 className='text-2xl mr-auto font-bold mb-2'>Add New Product</h2>
 
             <div className='flex flex-row space-x-10'>

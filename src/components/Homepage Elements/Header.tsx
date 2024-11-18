@@ -2,8 +2,10 @@ import header from '../../assets/header.png'
 import computerIcon from '../../assets/icons (2).png'
 import electronicsIcon from '../../assets/icons (3).png'
 import watchIcon from '../../assets/icons (1).png'
+import {useNavigate} from "react-router-dom";
 
 function Header() {
+    const navigate = useNavigate();
 
     return (
         <>
@@ -14,9 +16,13 @@ function Header() {
                         on-demand
                         brands all in one place</p>
                     <div className='font-light mt-4'>
-                        <button className='text-blue-500 border border-blue-500 rounded-full px-4 p-2'>Learn More
+                        <button className='text-blue-500 border border-blue-500 rounded-full px-4 p-2 hover:border-blue-700 transition'>
+                            Learn More
                         </button>
-                        <button className='text-white ml-2 bg-blue-500 rounded-full px-8 p-2'>Explore</button>
+                        <button onClick={() => navigate('/shop')}
+                                className='text-white ml-2 bg-blue-500 rounded-full px-8 p-2 hover:bg-blue-700 transition'>
+                            Explore
+                        </button>
                     </div>
                 </div>
                 <img className='col-span-1 w-72 mr-48 ml-auto' src={header}/>

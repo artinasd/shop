@@ -7,11 +7,11 @@ function Shop() {
     const reduxStore = useSelector((state: RootState) => state.shop)
 
     return (
-        <div>
-            <ul className='grid grid-cols-5 gap-3 my-16 mx-16'>
-                {reduxStore.map((item: Product, index: number) => (
+        <div className='bg-gray-50'>
+            <ul className='grid grid-cols-5 gap-5 py-16 mx-16'>
+                {reduxStore.slice().reverse().map((item: Product, index: number) => (
                     <li key={index}>
-                        <ShopProductCard image={item.image} price={item.price} title={item.title} />
+                        <ShopProductCard id={item.id} image={item.image} price={item.price} title={item.title} />
                     </li>
                 ))}
             </ul>

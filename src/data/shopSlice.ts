@@ -5,6 +5,9 @@ interface Product {
     title: string;
     price: number;
     image: string
+    category: string;
+    status: string
+    description: string
 }
 
 interface RootState {
@@ -30,6 +33,13 @@ const shopSlice = createSlice({
         addProduct: (state, action) => {
             console.log(action.payload)
             state.push(action.payload);
+            saveData({shop: state})
+        },
+        changeProduct: (state, action) => {
+            const selectedProduct = state.findIndex((whatever: any) => whatever.id === action.payload.id)
+            if (selectedProduct !== -1) {
+                state[selectedProduct] = {...state[selectedProduct], ...action.payload}
+            }
             saveData({shop: state})
         }
     }

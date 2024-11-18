@@ -10,7 +10,7 @@ function ProductReview() {
     console.log(addedProduct);
 
     return (
-        <div className='rounded-lg w-fit p-10 flex flex-col items-center mx-auto m-16 border border-gray-50 space-y-6 shadow-lg'>
+        <div className='bg-white rounded-lg w-fit p-10 flex flex-col items-center mx-auto m-16 border border-gray-50 space-y-6 shadow-lg'>
             <h2 className='text-2xl mr-auto font-bold mb-2'>Review</h2>
 
             {addedProduct ?
